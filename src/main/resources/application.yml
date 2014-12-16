@@ -1,0 +1,22 @@
+spring:
+  profiles.active: dev
+  datasource:
+    username: max
+    password:
+    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+spring:
+  profiles: prod
+  datasource:
+    username: max
+    password:
+    url: jdbc:mysql://localhost:3306/dev
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: create-drop
