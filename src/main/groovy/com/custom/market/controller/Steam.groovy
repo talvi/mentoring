@@ -1,6 +1,5 @@
 package com.custom.market.controller
 
-import com.epam.domain.Book
 import org.springframework.web.bind.annotation.RestController
 
 import static groovyx.net.http.Method.GET
