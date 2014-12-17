@@ -18,7 +18,7 @@ class AkkaConfig {
     // the application context is needed to initialize the Akka Spring Extension
     @Autowired
     private ApplicationContext applicationContext
-    @Value('${akka.config}')
+    @Value('${akka:config}')
     private String akkaConfig
 
     @Bean

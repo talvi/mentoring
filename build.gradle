@@ -19,6 +19,11 @@ buildscript {
     }
 }
 
+ext {
+    akkaVersion = '2.3.7'
+    springBootVersion = '1.1.9.RELEASE'
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -28,11 +33,20 @@ repositories {
 }
 
 dependencies {
-    testCompile "org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT"
-
-    compile("org.springframework.boot:spring-boot-starter-web:1.1.9.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.1.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
     compile("org.codehaus.groovy:groovy-all:2.3.7")
     compile("com.h2database:h2:")
     compile("org.codehaus.groovy.modules.http-builder:http-builder:0.7.1")
+    compile 'mysql:mysql-connector-java:5.1.13'
+
+    compile "com.typesafe.akka:akka-actor_2.11:${akkaVersion}"
+    compile "com.typesafe.akka:akka-remote_2.11:${akkaVersion}"
+    compile "com.typesafe.akka:akka-slf4j_2.11:${akkaVersion}"
+    compile "com.typesafe.akka:akka-cluster_2.11:${akkaVersion}"
+    compile "com.typesafe.akka:akka-contrib_2.11:${akkaVersion}"
+
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testCompile "com.typesafe.akka:akka-actor-tests_2.11:${akkaVersion}"
 }
